@@ -38,7 +38,7 @@ pipeline {
                         sh "docker stop ${PROJECT_NAME} || true"
                     }
                     script {
-                        sh "docker run -d --rm -p 8080:8080 --name ${PROJECT_NAME} -e ENVIRONMENT_PROFILE_NAME=\'prod\' " + imageName
+                        sh "docker run -d --rm -p 8081:8080 --name ${PROJECT_NAME} -e ENVIRONMENT_PROFILE_NAME=\'prod\' " + imageName
                     }
                 }
             }

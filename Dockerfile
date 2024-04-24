@@ -4,7 +4,7 @@ ENV HOME=/usr/app
 RUN mkdir -p $HOME
 WORKDIR $HOME
 ADD . $HOME
-RUN --mount=type=cache,target=/root/.m2 ./mvnw -f $HOME/pom.xml clean package -DVAULT_TOKEN=${TOKEN}
+RUN --mount=type=cache,target=/root/.m2 mvn -f $HOME/pom.xml clean package -DVAULT_TOKEN=${TOKEN}
 
 FROM openjdk:17-oracle
 ARG TOKEN

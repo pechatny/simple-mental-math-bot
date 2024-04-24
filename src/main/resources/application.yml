@@ -1,5 +1,5 @@
 spring:
-  application.name: telegram-template-bot
+  application.name: simple-mental-math-bot
   profiles.active: ${ENVIRONMENT_PROFILE_NAME:dev}
   cloud:
     vault:
@@ -18,5 +18,5 @@ management:
       export:
         enabled: true
 bot:
-  name: TelegramTemplateBot
+  name: simple_mental_math_bot
   token: ${bot.token}

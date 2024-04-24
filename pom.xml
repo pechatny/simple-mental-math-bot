@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>ru.pechatny</groupId>
-    <artifactId>telegram-bot-template</artifactId>
+    <artifactId>simple-mental-math-bot</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

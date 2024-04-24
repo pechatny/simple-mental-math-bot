@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        PROJECT_NAME = 'telegram-bot-template'
+        PROJECT_NAME = 'simple-mental-math-bot'
         imageName = "nexus:8082/repository/my-local-docker-repo/${PROJECT_NAME}:$BUILD_NUMBER"
         registryCredentials = "nexus-jenkins-docker"
         registry = "https://nexus:8082"

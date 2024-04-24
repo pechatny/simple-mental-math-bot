@@ -18,7 +18,7 @@ public class BotMetric implements LongPollingBot {
 
     BotMetric(@Qualifier("processor") LongPollingBot bot, MeterRegistry meterRegistry) {
         this.bot = bot;
-        this.counter = Counter.builder("congratulation.manager.bot.errors.counter").register(meterRegistry);
+        this.counter = Counter.builder("simple.mental.math.bot.errors.counter").register(meterRegistry);
     }
 
     @Override

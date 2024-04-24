@@ -18,7 +18,7 @@ public class StartCommand implements Command {
 
 
     @Override
-    public void execute() throws TelegramApiException {
+    public void execute() {
         sendMessage(chatId, "Начало упражнения!");
         Random random = new Random();
         IntStream.rangeClosed(1, 10).forEach(i -> {
@@ -45,6 +45,7 @@ public class StartCommand implements Command {
 
     public void sendMessage(Long chatId, String message) {
         SendMessage sendMessage = new SendMessage();
+        sendMessage.setDisableNotification(true);
         sendMessage.setText(message);
         sendMessage.setChatId(chatId);
         try {

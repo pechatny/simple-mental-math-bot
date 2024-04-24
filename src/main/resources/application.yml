@@ -1,0 +1,22 @@
+spring:
+  application.name: telegram-template-bot
+  profiles.active: ${ENVIRONMENT_PROFILE_NAME:dev}
+  cloud:
+    vault:
+      host: 192.168.88.248
+      port: 8200
+      scheme: http
+      token: ${VAULT_TOKEN}
+  config.import: vault://
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+bot:
+  name: TelegramTemplateBot
+  token: ${bot.token}

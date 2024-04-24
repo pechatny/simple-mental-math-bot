@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Git checkout'){
             steps{
-                git credentialsId: '4851be6a-eea6-40b6-9004-53706128ca31', url: "http://pechatny.synology.me:10080/d.pechatnikov/${PROJECT_NAME}.git"
+                git branch: 'main', credentialsId: '4851be6a-eea6-40b6-9004-53706128ca31', url: "http://pechatny.synology.me:10080/d.pechatnikov/${PROJECT_NAME}.git"
             }
         }
         stage('Build image'){

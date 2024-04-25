@@ -30,7 +30,7 @@ public class StartCommand implements Command {
             try {
                 Thread.sleep(9000);
 
-                String resultMessage = "%d: %d + %d = %d".formatted(i, a, b, result);
+                String resultMessage = "*%d*".formatted(result);
                 sendMessage(chatId, resultMessage);
 
                 Thread.sleep(1000);
@@ -45,7 +45,7 @@ public class StartCommand implements Command {
 
     public void sendMessage(Long chatId, String message) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setDisableNotification(true);
+        sendMessage.disableNotification();
         sendMessage.setText(message);
         sendMessage.setChatId(chatId);
         try {

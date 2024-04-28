@@ -1,5 +1,6 @@
 package ru.pechatny.command;
 
+import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.pechatny.bot.Bot;
@@ -46,6 +47,7 @@ public class StartCommand implements Command {
 
     public void sendMessage(Long chatId, String message) {
         SendMessage sendMessage = new SendMessage();
+        sendMessage.setParseMode(ParseMode.MARKDOWN);
         sendMessage.disableNotification();
         sendMessage.setText(message);
         sendMessage.setChatId(chatId);

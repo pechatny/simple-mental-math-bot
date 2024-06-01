@@ -17,11 +17,11 @@ pipeline {
         stage('Build image'){
             steps{
                 script{
-										 withDockerRegistry(url: mirror) {
+                    withDockerRegistry(url: mirror) {
 	                    withCredentials([string(credentialsId: 'VAULT_TOKEN', variable: 'VAULT_TOKEN')]) {
 	                        dockerImage = docker.build(imageName, "--build-arg TOKEN=${VAULT_TOKEN} .")
 	                    }
-										 }
+                    }
                 }
             }
         }

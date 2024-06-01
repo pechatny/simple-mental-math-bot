@@ -4,6 +4,7 @@ pipeline {
         imageName = "nexus:8082/repository/my-local-docker-repo/${PROJECT_NAME}:$BUILD_NUMBER"
         registryCredentials = "nexus-jenkins-docker"
         registry = "https://nexus:8082"
+        mirror = "https://mirror.gcr.io"
         dockerImage = ''
     }
     agent any
@@ -16,9 +17,11 @@ pipeline {
         stage('Build image'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'VAULT_TOKEN', variable: 'VAULT_TOKEN')]) {
-                        dockerImage = docker.build(imageName, "--build-arg TOKEN=${VAULT_TOKEN} .")
-                    }
+										 withDockerRegistry(url: mirror) {
+	                    withCredentials([string(credentialsId: 'VAULT_TOKEN', variable: 'VAULT_TOKEN')]) {
+	                        dockerImage = docker.build(imageName, "--build-arg TOKEN=${VAULT_TOKEN} .")
+	                    }
+										 }
                 }
             }
         }
